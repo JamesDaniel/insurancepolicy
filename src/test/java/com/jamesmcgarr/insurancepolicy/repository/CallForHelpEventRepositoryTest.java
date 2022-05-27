@@ -1,16 +1,16 @@
 package com.jamesmcgarr.insurancepolicy.repository;
 
-import com.jamesmcgarr.insurancepolicy.model.AliveEvent;
+import com.jamesmcgarr.insurancepolicy.model.CallForHelpEvent;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class CallForHelpEventRepositoryTest {
 
     @Autowired
-    public AliveEventRepository aliveEventRepository;
+    public CallForHelpEventRepository callForHelpEventRepository;
 
     @Test
     public void testAliveEventRepository() {
-        aliveEventRepository.save(new AliveEvent());
+        callForHelpEventRepository.save(new CallForHelpEvent());
     }
 }

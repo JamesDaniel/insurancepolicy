@@ -1,16 +1,16 @@
 package com.jamesmcgarr.insurancepolicy.repository;
 
-import com.jamesmcgarr.insurancepolicy.model.AliveEvent;
+import com.jamesmcgarr.insurancepolicy.model.AskIfOkayEvent;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class AskIfOkayEventRepositoryTest {
 
     @Autowired
-    public AliveEventRepository aliveEventRepository;
+    public AskIfOkayEventRepository askIfOkayEventRepository;
 
     @Test
     public void testAliveEventRepository() {
-        aliveEventRepository.save(new AliveEvent());
+        askIfOkayEventRepository.save(new AskIfOkayEvent());
     }
 }
