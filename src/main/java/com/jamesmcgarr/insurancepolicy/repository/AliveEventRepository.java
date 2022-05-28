@@ -1,8 +1,8 @@
 package com.jamesmcgarr.insurancepolicy.repository;
 
-import com.jamesmcgarr.insurancepolicy.model.AliveEvent;
+import com.jamesmcgarr.insurancepolicy.entity.AliveEvent;
+import org.springframework.data.repository.CrudRepository;
 
-public interface AliveEventRepository {
+public interface AliveEventRepository extends CrudRepository<AliveEvent, Long> {
 
-    void save(AliveEvent aliveEvent);
 }
