@@ -5,4 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface AliveEventRepository extends CrudRepository<AliveEvent, Long> {
 
+    AliveEvent findFirstByUsernameOrderByCreateTimeStampDesc(String username);
+
 }
