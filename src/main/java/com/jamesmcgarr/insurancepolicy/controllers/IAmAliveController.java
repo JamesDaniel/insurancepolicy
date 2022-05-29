@@ -15,7 +15,9 @@ public class IAmAliveController {
 
     @PostMapping(value = "/iamalive", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void iAmAlive(@RequestBody AliveEvent aliveEvent) {
-        aliveStatusService.iAmAlive(aliveEvent);
+        AliveEvent aliveEvent1 = new AliveEvent();
+        aliveEvent1.setUsername(aliveEvent.getUsername());
+        aliveStatusService.iAmAlive(aliveEvent1);
     }
 
     @GetMapping(value = "/status/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
