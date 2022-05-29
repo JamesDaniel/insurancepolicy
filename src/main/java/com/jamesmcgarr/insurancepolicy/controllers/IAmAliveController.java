@@ -1,10 +1,13 @@
 package com.jamesmcgarr.insurancepolicy.controllers;
 
 import com.jamesmcgarr.insurancepolicy.entity.AliveEvent;
+import com.jamesmcgarr.insurancepolicy.exceptions.AliveEventNotFoundException;
 import com.jamesmcgarr.insurancepolicy.services.AliveStatusService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -24,6 +27,10 @@ public class IAmAliveController {
     public AliveEvent amIAlive(@PathVariable String username) {
         AliveEvent aliveEvent = new AliveEvent();
         aliveEvent.setUsername(username);
-        return aliveStatusService.amIAlive(aliveEvent);
+        try {
+            return aliveStatusService.amIAlive(aliveEvent);
+        } catch (AliveEventNotFoundException ex) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Alive event not found!");
+        }
     }
 }
